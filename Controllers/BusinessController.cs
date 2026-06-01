@@ -15,8 +15,8 @@ namespace BusinessManagement.Controllers
             _businessSupervisor = businessSupervisor;
         }
 
-        // ─── POST api/business ───────────────────────────────────────────────────
-        /// <summary>Add a new business</summary>
+        //POST api/business 
+        /// Add a new business
         [HttpPost]
         public async Task<IActionResult> AddBusiness([FromBody] AddBusinessRequest request)
         {
@@ -24,8 +24,8 @@ namespace BusinessManagement.Controllers
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
-        // ─── GET api/business ────────────────────────────────────────────────────
-        /// <summary>Get all active businesses</summary>
+        // GET api/business
+        //Get all active businesses
         [HttpGet]
         public async Task<IActionResult> GetAllBusinesses()
         {
@@ -33,8 +33,8 @@ namespace BusinessManagement.Controllers
             return Ok(response);
         }
 
-        // ─── GET api/business/{businessId} ───────────────────────────────────────
-        /// <summary>Get a specific business by its ID</summary>
+        // GET api/business/{businessId}
+        // Get a specific business by its ID
         [HttpGet("{businessId}")]
         public async Task<IActionResult> GetBusinessById([FromRoute] string businessId)
         {
@@ -42,8 +42,8 @@ namespace BusinessManagement.Controllers
             return response.Success ? Ok(response) : NotFound(response);
         }
 
-        // ─── PUT api/business/{businessId} ───────────────────────────────────────
-        /// <summary>Edit an existing business</summary>
+        // PUT api/business/{businessId}
+        //Edit an existing business
         [HttpPut("{businessId}")]
         public async Task<IActionResult> EditBusiness(
             [FromRoute] string businessId,
@@ -53,8 +53,8 @@ namespace BusinessManagement.Controllers
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
-        // ─── DELETE api/business/{businessId} ────────────────────────────────────
-        /// <summary>Soft-delete a business</summary>
+        //  DELETE api/business/{businessId}
+        //Soft-delete a business
         [HttpDelete("{businessId}")]
         public async Task<IActionResult> DeleteBusiness([FromRoute] string businessId)
         {

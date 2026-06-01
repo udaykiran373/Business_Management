@@ -18,7 +18,7 @@ namespace BusinessManagement.Repositories
             );
         }
 
-        // ─── Insert ─────────────────────────────────────────────────────────────
+        //  Insert 
 
         public async Task<Business> InsertBusinessAsync(Business business)
         {
@@ -26,7 +26,7 @@ namespace BusinessManagement.Repositories
             return business;
         }
 
-        // ─── Fetch All (excluding soft-deleted) ─────────────────────────────────
+        // Fetch All 
 
         public async Task<List<Business>> FetchAllBusinessesAsync()
         {
@@ -34,7 +34,7 @@ namespace BusinessManagement.Repositories
             return await _businessCollection.Find(filter).ToListAsync();
         }
 
-        // ─── Fetch By BusinessId ─────────────────────────────────────────────────
+        // Fetch By BusinessId
 
         public async Task<Business?> FetchBusinessByIdAsync(string businessId)
         {
@@ -45,7 +45,7 @@ namespace BusinessManagement.Repositories
             return await _businessCollection.Find(filter).FirstOrDefaultAsync();
         }
 
-        // ─── Update ──────────────────────────────────────────────────────────────
+        //  Update 
 
         public async Task<bool> UpdateBusinessAsync(string businessId, Business updatedBusiness)
         {
@@ -64,7 +64,7 @@ namespace BusinessManagement.Repositories
             return result.ModifiedCount > 0;
         }
 
-        // ─── Soft Delete ─────────────────────────────────────────────────────────
+        // Soft Delete 
 
         public async Task<bool> SoftDeleteBusinessAsync(string businessId)
         {
@@ -81,7 +81,7 @@ namespace BusinessManagement.Repositories
             return result.ModifiedCount > 0;
         }
 
-        // ─── Existence Check ─────────────────────────────────────────────────────
+        //Existence Check 
 
         public async Task<bool> BusinessExistsAsync(string businessId)
         {

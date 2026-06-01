@@ -13,7 +13,7 @@ namespace BusinessManagement.Supervisors
             _businessRepository = businessRepository;
         }
 
-        // ─── Add Business ────────────────────────────────────────────────────────
+        // Add Business 
 
         public async Task<ApiResponse<BusinessResponse>> AddBusinessAsync(AddBusinessRequest request)
         {
@@ -43,7 +43,7 @@ namespace BusinessManagement.Supervisors
             return ApiResponse<BusinessResponse>.Ok(MapToResponse(insertedBusiness), "Business added successfully.");
         }
 
-        // ─── Get All Businesses ──────────────────────────────────────────────────
+        // Get All Businesses 
 
         public async Task<ApiResponse<List<BusinessResponse>>> GetAllBusinessesAsync()
         {
@@ -56,7 +56,7 @@ namespace BusinessManagement.Supervisors
             return ApiResponse<List<BusinessResponse>>.Ok(responseList, $"{responseList.Count} business(es) retrieved successfully.");
         }
 
-        // ─── Get Business By Id ──────────────────────────────────────────────────
+        // Get Business By Id 
 
         public async Task<ApiResponse<BusinessResponse>> GetBusinessByIdAsync(string businessId)
         {
@@ -71,8 +71,7 @@ namespace BusinessManagement.Supervisors
             return ApiResponse<BusinessResponse>.Ok(MapToResponse(business), "Business retrieved successfully.");
         }
 
-        // ─── Edit Business ───────────────────────────────────────────────────────
-
+        // Edit Business 
         public async Task<ApiResponse<BusinessResponse>> EditBusinessAsync(string businessId, EditBusinessRequest request)
         {
             if (string.IsNullOrWhiteSpace(businessId))
@@ -109,7 +108,7 @@ namespace BusinessManagement.Supervisors
             return ApiResponse<BusinessResponse>.Ok(MapToResponse(refreshedBusiness!), "Business updated successfully.");
         }
 
-        // ─── Delete Business (Soft Delete) ───────────────────────────────────────
+        //  Delete Business (Soft Delete)
 
         public async Task<ApiResponse<string>> DeleteBusinessAsync(string businessId)
         {
@@ -128,7 +127,7 @@ namespace BusinessManagement.Supervisors
             return ApiResponse<string>.Ok(businessId, "Business deleted successfully.");
         }
 
-        // ─── Mapper ──────────────────────────────────────────────────────────────
+        // Mapper
 
         private static BusinessResponse MapToResponse(Business business) =>
             new()
